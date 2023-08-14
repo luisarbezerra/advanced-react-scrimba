@@ -245,7 +245,7 @@ i[class*='van-type-'] {
   text-decoration: underline;
 }
 
-.van-detail { 
+.van-detail {
   display: flex;
   flex-direction: column;
   color: #161616;
@@ -279,4 +279,21 @@ i[class*='van-type-'] {
   background-color: #ff8c38;
   color: white;
   font-size: 1.125rem;
+}
+
+.host-nav {
+  display: flex;
+}
+
+.host-nav a {
+  text-decoration: none;
+  color: #4d4d4d;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.host-nav a:hover {
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 600;
 }
