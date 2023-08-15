@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getVans } from '../../api';
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [vans, setVans] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [vans, setVans] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
   const typeFilter = searchParams.get('type');
 
-  useEffect(() => {
+  React.useEffect(() => {
     async function loadVans() {
       setLoading(true);
       try {
@@ -34,7 +34,10 @@ export default function Vans() {
     <div key={van.id} className="van-tile">
       <Link
         to={van.id}
-        state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+        state={{
+          search: `?${searchParams.toString()}`,
+          type: typeFilter,
+        }}
       >
         <img src={van.imageUrl} />
         <div className="van-info">
@@ -65,7 +68,7 @@ export default function Vans() {
   }
 
   if (error) {
-    return <h1>Error : {error.message}</h1>;
+    return <h1>There was an error: {error.message}</h1>;
   }
 
   return (
@@ -75,21 +78,21 @@ export default function Vans() {
         <button
           onClick={() => handleFilterChange('type', 'simple')}
           className={`van-type simple 
-                    ${typeFilter === 'simple' ? 'selected' : ''}`}
+                        ${typeFilter === 'simple' ? 'selected' : ''}`}
         >
           Simple
         </button>
         <button
           onClick={() => handleFilterChange('type', 'luxury')}
           className={`van-type luxury 
-                    ${typeFilter === 'luxury' ? 'selected' : ''}`}
+                        ${typeFilter === 'luxury' ? 'selected' : ''}`}
         >
           Luxury
         </button>
         <button
           onClick={() => handleFilterChange('type', 'rugged')}
           className={`van-type rugged 
-                    ${typeFilter === 'rugged' ? 'selected' : ''}`}
+                        ${typeFilter === 'rugged' ? 'selected' : ''}`}
         >
           Rugged
         </button>
