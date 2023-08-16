@@ -1,4 +1,6 @@
-# advanced react scrimba
+# VanLife
+
+This is a React Router project of Scrimba's Advanced React course.
 
 Quick start:
 
@@ -6,8 +8,6 @@ Quick start:
 $ npm install
 $ npm start
 ```
-
-Head over to https://vitejs.dev/ to learn more about using vite
 
 ## About Scrimba
 
